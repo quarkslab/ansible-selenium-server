@@ -1,0 +1,10 @@
+# Configuration for /etc/init.d/xvfb-selenium
+# {{ ansible_managed }}
+
+# X display port default: :99
+X_DISPLAY="{{ selenium_display }}"
+
+DAEMON_USER="{{ selenium_user }}"
+
+# Xvfb extra args
+XVFB_EXTRA_ARGS="{{ selenium_xvfb_extra_args }}"

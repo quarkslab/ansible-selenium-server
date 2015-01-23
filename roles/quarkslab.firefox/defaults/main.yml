@@ -1,0 +1,6 @@
+---
+
+firefox_installation_mode: 'apt'
+firefox_custom_package_url: ''
+firefox_custom_package_sha256sum: ''
+firefox_custom_package_directory: '/tmp'

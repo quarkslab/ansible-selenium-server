@@ -1,0 +1,7 @@
+---
+
+- name: Install Xvfb
+  apt:
+    name: xvfb
+    state: present
+  sudo: yes

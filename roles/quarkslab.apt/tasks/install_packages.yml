@@ -1,0 +1,8 @@
+---
+
+- name: Install APT packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  sudo: yes
+  with_items: apt_packages

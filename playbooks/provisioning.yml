@@ -1,0 +1,12 @@
+---
+
+- name: Provision Selenium Server
+  hosts: all
+  roles:
+    - { role: quarkslab.apt, tags: 'apt' }
+    - { role: quarkslab.firefox, tags: 'firefox' }
+    - { role: quarkslab.chromium, tags: 'chromium' }
+    - { role: quarkslab.java, tags: 'java' }
+    - { role: quarkslab.selenium, tags: 'selenium' }
+
+# vim: sw=2

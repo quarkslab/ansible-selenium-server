@@ -1,0 +1,20 @@
+---
+
+## Apt
+apt_repositories_mirrors: [ 'http://ubuntu.mirrors.ovh.net/ftp.ubuntu.com/ubuntu/' ]
+apt_packages:
+  - unzip
+
+
+# Firefox
+firefox_installation_mode: 'custom' # should be in (custom, apt)
+firefox_custom_package_url: 'https://launchpad.net/~ubuntu-mozilla-security/+archive/ubuntu/ppa/+build/6457763/+files/firefox_33.0%2Bbuild2-0ubuntu0.14.04.1_amd64.deb'
+firefox_custom_package_sha256sum: 'dbc24d818d3fd9a81d36fe3f052b78be9b56e7b7b5f50026741a902b6218a617'
+
+
+## Selenium installation
+selenium_port: 4444
+
+selenium_driver_list:
+  - chrome
+  - firefox

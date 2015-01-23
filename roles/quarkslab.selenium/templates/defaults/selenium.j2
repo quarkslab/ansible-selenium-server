@@ -1,0 +1,20 @@
+# Configuration for /etc/init.d/selenium
+# {{ ansible_managed }}
+
+# Java options for selenium
+SELENIUM_JAVA_OPTS="{{ selenium_java_opts }}"
+
+# Path to selenium JAR
+SELENIUM_LIB="{{ selenium_server_path }}/{{ selenium_jar_file }}"
+
+# Selenium port default: 4444
+SELENIUM_PORT="{{ selenium_port }}"
+
+# Selenium user default: selenium
+SELENIUM_USER="{{ selenium_user }}"
+
+# Selenium log dir default: /var/log/selenium
+SELENIUM_LOGDIR="{{ selenium_log_dir }}"
+
+# X display port default: :99
+X_DISPLAY="{{ selenium_display }}"

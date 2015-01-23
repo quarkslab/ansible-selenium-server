@@ -1,0 +1,7 @@
+---
+
+- name: Download Selenium server (Jar file)
+  get_url:
+    url: "{{ selenium_download_url }}"
+    dest: "{{ selenium_server_path }}/{{ selenium_jar_file }}"
+  sudo: yes

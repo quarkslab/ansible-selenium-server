@@ -1,0 +1,34 @@
+# Package states: present or installed or latest
+selenium_pkg_state: present
+
+selenium_run_at_startup: yes
+selenium_server_major_version: "2.44" # Selenium client major version
+selenium_server_minor_version: ".0" # Selenium client minor version
+selenium_server_version: "{{ selenium_server_major_version }}{{ selenium_server_minor_version }}" # Selenium client
+
+selenium_download_url: "http://selenium-release.storage.googleapis.com/{{ selenium_server_major_version }}/{{ selenium_jar_file }}"
+selenium_jar_file: "selenium-server-standalone-{{ selenium_server_version }}.jar"
+selenium_server_path: '/usr/local/lib/selenium'
+
+selenium_user: selenium
+selenium_group: selenium
+
+selenium_log_dir: /var/log/selenium
+
+selenium_hub: ''
+selenium_java_opts: '-Xmx256m -Djava.security.egd=file:/dev/urandom'
+selenium_extra_args: ''
+selenium_port: '4444'
+
+
+selenium_display: ':99'
+
+selenium_xvfb_extra_args: '-ac'
+
+
+# Driver informations
+selenium_driver_list: []
+
+selenium_chromedriver_version: '2.13'
+selenium_chromedriver_download_url: 'http://chromedriver.storage.googleapis.com/{{ selenium_chromedriver_version }}/chromedriver_linux64.zip'
+selenium_chromedriver_install_path: '/usr/local/bin'

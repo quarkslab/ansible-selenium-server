@@ -1,0 +1,10 @@
+---
+
+- name: Restart Selenium services
+  service:
+    name: "{{ item }}"
+    state: restarted
+  sudo: yes
+  with_items:
+    - xvfb-selenium
+    - selenium

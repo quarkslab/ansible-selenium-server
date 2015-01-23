@@ -1,0 +1,32 @@
+---
+
+- name: Install Configuration files
+  template:
+    src: defaults/{{ item }}.j2
+    dest: /etc/default/{{ item }}
+    mode: 0644
+  sudo: yes
+  notify: Restart Selenium services
+  with_items:
+    - xvfb-selenium
+    - selenium
+
+- name: Install Init.d script
+  template:
+    src: init.d/{{ item }}.j2
+    dest: /etc/init.d/{{ item }}
+    mode: 0755
+  sudo: yes
+  notify: Restart Selenium services
+  with_items:
+    - xvfb-selenium
+    - selenium
+
+- name: Update Services boot options
+  service:
+    name: selenium
+    enabled: "{{ selenium_run_at_startup | bool }}"
+  sudo: yes
+  with_items:
+    - xvfb-selenium
+    - selenium

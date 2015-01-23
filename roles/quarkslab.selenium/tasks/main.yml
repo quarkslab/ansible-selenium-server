@@ -1,0 +1,11 @@
+---
+
+- include: before_install.yml
+
+  # Install Xvfb Selenium and its drivert
+- include: xvfb_install.yml
+- include: selenium_install.yml
+- include: drivers_install.yml
+
+  # Services configuration for Xvfb and Selenium
+- include: services_configuration.yml

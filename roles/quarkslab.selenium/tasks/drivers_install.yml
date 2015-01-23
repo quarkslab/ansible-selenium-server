@@ -1,0 +1,25 @@
+---
+
+- name: Create temp directory
+  command: mktemp -d
+  register: mktemp
+
+- name: Download and install ChromeDriver
+  get_url:
+    url: "{{ selenium_chromedriver_download_url }}"
+    dest: "{{ mktemp.stdout }}/{{ selenium_chromedriver_download_url | basename }}"
+  when: "'chrome' in selenium_driver_list"
+
+- command: "unzip {{ mktemp.stdout }}/{{ selenium_chromedriver_download_url | basename }} -d {{ selenium_chromedriver_install_path }} "
+  sudo: yes
+  args:
+    creates: "{{ selenium_chromedriver_install_path }}/chromedriver"
+  when: "'chrome' in selenium_driver_list"
+
+- file:
+    path: "{{ selenium_chromedriver_install_path }}/chromedriver"
+    owner: root
+    group: root
+    mode: 0755
+    state: file
+  sudo: yes

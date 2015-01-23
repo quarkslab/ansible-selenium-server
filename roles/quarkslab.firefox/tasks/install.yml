@@ -1,0 +1,21 @@
+---
+
+- name: Download and Install custom package (Ubuntu)
+  get_url:
+    url: "{{ firefox_custom_package_url }}"
+    dest: "{{ firefox_custom_package_directory }}/firefox.deb"
+    sha256sum: "{{ firefox_custom_package_sha256sum }}"
+    force: yes
+  when: ansible_distribution == 'Ubuntu' and firefox_installation_mode == 'custom'
+
+- apt:
+    deb: "{{ firefox_custom_package_directory }}/firefox.deb"
+  when: ansible_distribution == 'Ubuntu' and firefox_installation_mode == 'custom'
+  sudo: yes
+
+- name: Install Firefox from Ubuntu repositories
+  apt:
+    name: firefox
+    state: present
+  when: firefox_installation_mode == 'apt'
+  sudo: yes
